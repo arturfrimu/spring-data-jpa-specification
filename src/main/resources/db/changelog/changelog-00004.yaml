@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: Artur Frimu
+      changes:
+        - sql:
+            sql: >
+              INSERT INTO account
+              values ('de3076a2-439f-4f72-9466-3056f7d6e2f4', 'Import and Export', '9bb1fb8f-499b-46a8-8feb-25f97ef71777'),
+                     ('b73c04dc-7d7e-426b-b217-45c31d70c01f', 'Computer Networking', '9bb1fb8f-499b-46a8-8feb-25f97ef71777'),
+                     ('c46cc55b-891d-4127-8988-0257ce256487', 'Recreational Facilities and Services', '9a269024-70d3-4f9f-b0bb-8eb86d8f1c1d'),
+                     ('397cbb8c-c84d-4156-8394-710a33109d51', 'Internet', '143b9d45-2ca3-41be-8c04-27c28b63e59f'),
+                     ('ecb2ffbd-8248-4ef1-afc5-214fc343d937', 'Philanthropy', 'ff71c270-d640-4cb7-8228-b7787fb6cc74'),
+                     ('feffcf78-29bc-4543-ac23-109dede13776', 'Sports', '4d731e05-563a-4216-b5c2-238ab82373fd');

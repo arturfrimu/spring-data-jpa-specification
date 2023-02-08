@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: Artur Frimu
+      changes:
+        - sql:
+            sql: >
+              CREATE TABLE account(
+                account_id UUID NOT NULL,
+                name VARCHAR(128) NOT NULL,
+                user_id UUID NOT NULL,
+                CONSTRAINT pk_account_id PRIMARY KEY (account_id),
+                CONSTRAINT uq_account_name UNIQUE (name),
+                FOREIGN KEY (user_id) REFERENCES users(user_id)
+              );

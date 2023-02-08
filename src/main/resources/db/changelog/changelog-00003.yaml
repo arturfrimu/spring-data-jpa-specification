@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: Artur Frimu
+      changes:
+        - sql:
+            sql: >
+              INSERT INTO users
+              values ('9bb1fb8f-499b-46a8-8feb-25f97ef71777', 'Rick Weimann Jr.'),
+                     ('1ba4fc27-c945-4abb-9cf4-6f4e85b37819', 'Lee Crooks IV'),
+                     ('9a269024-70d3-4f9f-b0bb-8eb86d8f1c1d', 'Mrs. Rene Donnelly'),
+                     ('143b9d45-2ca3-41be-8c04-27c28b63e59f', 'Rene Stark V'),
+                     ('ff71c270-d640-4cb7-8228-b7787fb6cc74', 'Andrew Ortiz'),
+                     ('4d731e05-563a-4216-b5c2-238ab82373fd', 'Chance Nader');

@@ -8,13 +8,14 @@ import com.arturfrimu.specification.repository.UserRepository;
 import com.arturfrimu.specification.specification.GenericSpecificationsBuilder;
 import com.arturfrimu.specification.specification.SpecificationFactory;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.UUID;
+
+import static java.util.Objects.nonNull;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
 @Service
 @RequiredArgsConstructor
@@ -26,14 +27,13 @@ public final class AccountService {
 
     public Page<AccountResponse> searchAccount(Pageable pageable, UUID accountId, String name) {
         GenericSpecificationsBuilder<Account> builder = new GenericSpecificationsBuilder<>();
-        if (Objects.nonNull(accountId)) {
+        if (nonNull(accountId)) {
             builder.with(accountSpecificationFactory.isEqual("id", accountId));
         }
-        if (StringUtils.isNotEmpty(name)) {
+        if (isNotEmpty(name)) {
             builder.with(accountSpecificationFactory.contains("name", name));
         }
-        return accountRepository.findAll(builder.build(), pageable)
-                .map(this::apply);
+        return accountRepository.findAll(builder.build(), pageable).map(this::apply);
     }
 
     private AccountResponse apply(Account account) {
